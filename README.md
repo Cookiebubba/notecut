@@ -18,7 +18,8 @@ The agent gets exact timestamps, does the work, marks it green, and writes the s
 
 ---
 
-![Desktop review page: video, timeline, waveform strip with word boundaries, transcript with a drag-selection, and the comment rail](docs/screenshots/desktop.png)
+![Desktop review page: the video, a timeline with the cuts marked, the transcript with a drag-selection, and the comment rail](docs/screenshots/desktop.png)
+<p align="center"><sub>Drag across the transcript and the selection becomes an instruction with exact source timestamps. Green = the agent did it.</sub></p>
 
 <table>
 <tr>
@@ -26,7 +27,7 @@ The agent gets exact timestamps, does the work, marks it green, and writes the s
 <td width="50%"><img src="docs/screenshots/home.png" alt="Home page listing videos in the edit with their status counts"></td>
 </tr>
 <tr>
-<td align="center"><sub>Speech waveform strip — every cut is visible, labelled with its source timecode</sub></td>
+<td align="center"><sub>Optional waveform strip (key <code>w</code>): shows exactly where each cut lands between words</sub></td>
 <td align="center"><sub>Home — every video in the edit, with what is waiting on whom</sub></td>
 </tr>
 </table>
@@ -59,7 +60,7 @@ pip install .          # stdlib only; add [asr] for local transcription, [fast] 
 notecut demo           # unpacks the bundled sample into ./notecut-demo and serves it
 ```
 
-Open <http://127.0.0.1:8808/v/demo>. That is the page in the screenshots: a 49-second synthetic clip with a real word-timed transcript, a cut, a done comment, two open ones and a pin.
+Open <http://127.0.0.1:8808/v/demo>. That is the page in the screenshots: a 42-second scene from *Tears of Steel* with a word-timed transcript, a first-pass cut (one stammer and two stretches of dead air removed), a done comment, two open ones and a pin.
 
 To review your own footage:
 
@@ -256,7 +257,7 @@ Keep `data/` on backed-up storage: it is the only thing that is not rebuildable.
 ```bash
 pip install -e ".[dev]"
 pytest                                  # ledger fold, state, handoff, range serving, hot reload, feed
-python scripts/build_demo.py            # regenerate the demo (needs ffmpeg, kokoro-onnx, faster-whisper, PIL)
+python scripts/build_demo.py            # regenerate the demo (needs ffmpeg + faster-whisper; downloads the footage once)
 node scripts/screenshots.js             # regenerate README screenshots (headless Chrome)
 ```
 
@@ -265,3 +266,5 @@ node scripts/screenshots.js             # regenerate README screenshots (headles
 ## License
 
 MIT — see [LICENSE](LICENSE). The logo is part of the project and ships under the same terms.
+
+Demo footage: [*Tears of Steel*](https://mango.blender.org/) © Blender Foundation, [CC-BY 3.0](https://creativecommons.org/licenses/by/3.0/) — a 42 s excerpt, rescaled and re-encoded ([CREDITS](notecut/examples/demo/CREDITS.md)).

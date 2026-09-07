@@ -1,13 +1,13 @@
 {
- "summary": "Demo cut: a 50 s synthetic monologue with two flubs removed. v2 is current (c0001 applied).",
+ "summary": "Demo cut: 42 s bridge scene from Tears of Steel. First pass removed a stammer and the dead air between scenes (4 keeps). v2 is current (c0001 applied).",
  "resume": [
   "Read the open comments: `notecut comments demo --open`",
-  "Apply each one to assets/demo/edl.json (source times), re-render preview.mp4, then `notecut complete demo <id> <note>`",
+  "Apply each one to assets/demo/edl.json (source times), re-render the cut, then `notecut complete demo <id> <note>`",
   "Write what changed back with `notecut state merge demo '{...}'` and `notecut log demo ...`"
  ],
  "open_items": [
-  "AGENT: c0002 duck the bed under the 'drop a pin' sentence",
-  "AGENT: c0004 centre mark alignment",
+  "AGENT: c0002 duck the score under the 'nightmares' line",
+  "AGENT: c0004 hold on the robot hand",
   "OWNER: c0003 is a saved draft - do not act until sent"
  ],
  "rules": [
@@ -17,26 +17,27 @@
  ],
  "source": {
   "file": "assets/demo/source.mp4",
-  "duration_s": 43.39,
-  "note": "synthetic TTS + generated picture"
+  "duration_s": 42.0,
+  "note": "Tears of Steel (c) Blender Foundation | mango.blender.org | CC-BY 3.0; 21.0-63.0 s of the 720p release, scaled to 960 px"
  },
  "transcript": {
   "file": "assets/demo/words.json",
-  "words": 141,
+  "words": 76,
   "model": "large-v3-turbo"
  },
  "timeline": {
   "edl": "assets/demo/edl.json",
-  "keep_segments": 3,
-  "prior": "assets/demo/prior_edl.json"
+  "keep_segments": 4,
+  "prior": "assets/demo/prior_edl.json",
+  "removed": "stammer 13.4-16.1, dead air 24.6-27.9, dead air 33.3-38.5"
  },
  "renders": {
   "current": {
    "file": "assets/demo/source.mp4",
    "version": "v2",
-   "duration_s": 43.39,
+   "duration_s": 30.45,
    "built_by": "build_demo.py",
-   "date": "2026-09-06"
+   "date": "2026-09-07"
   },
   "lineage": [
    "v1 = first cut (prior_edl.json)",
@@ -50,6 +51,6 @@
   "2026-09-06 v1 cut posted for review",
   "2026-09-06 c0001 applied -> v2"
  ],
- "updated_at": "2026-09-07T15:08:59Z",
+ "updated_at": "2026-09-07T15:59:34Z",
  "updated_by": "editor-agent"
 }

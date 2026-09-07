@@ -2,21 +2,25 @@
  "keep": [
   {
    "start": 0.0,
-   "end": 12.15
+   "end": 13.39
   },
   {
-   "start": 14.69,
-   "end": 27.86
+   "start": 16.06,
+   "end": 24.56
   },
   {
-   "start": 31.35,
-   "end": 49.42
+   "start": 27.95,
+   "end": 33.26
+  },
+  {
+   "start": 38.53,
+   "end": 41.78
   }
  ],
  "run": {
   "params": {
    "ordered": false
   },
-  "note": "v2: two flubs removed, last line extended"
+  "note": "v2: stammer + dead air removed, last line extended"
  }
 }

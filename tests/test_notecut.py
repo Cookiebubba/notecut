@@ -66,7 +66,7 @@ def test_payload_words_edl_and_splices(srv):
     assert d["words"] and all({"w", "s", "e"} <= set(w) for w in d["words"])
     kept = [w for w in d["words"] if w.get("kept")]
     assert 0 < len(kept) < len(d["words"]), "the demo EDL removes something, so some words must be cut"
-    assert d["clip_dur"] > 40 and d["splices"], "3 keep segments -> at least one splice"
+    assert 25 < d["clip_dur"] < 35 and len(d["splices"]) == 3, "4 keep segments (stammer + 2 dead-air removals) -> 3 splices"
     assert d["peaks_url"] == "/peaks/demo.json", "peaks are lazy: the page fetches them after first paint"
     pk = jget(srv["url"], d["peaks_url"]); assert pk["hz"] == 50 and len(pk["peak"]) == pk["n"]
 
@@ -190,7 +190,7 @@ def test_config_hot_reload_and_missing_optional_assets(srv, tmp_path):
     ids = {v["id"] for v in jget(u, "/api/videos")["videos"]}
     assert ids == {"demo", "bare"}, "new entry visible without a restart"
     d = jget(u, "/api/bare")
-    assert d["words"] == [] and d["clip_dur"] > 40 and d["splices"] == []
+    assert d["words"] == [] and d["clip_dur"] > 40 and d["splices"] == [], "no EDL -> the whole 42 s source plays"
     assert req(u, "/v/bare")[0] == 200 and req(u, "/media/bare", headers={"Range": "bytes=0-1"})[0] == 206
     assert jget(u, "/api/bare/comments")["comments"] == []
     assert req(u, "/api/bare/handoff")[0] == 200

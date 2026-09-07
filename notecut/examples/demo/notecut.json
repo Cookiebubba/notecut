@@ -1,18 +1,20 @@
 {
  "videos": {
   "demo": {
-   "title": "Review like a human, hand off like a machine (demo, v2)",
+   "title": "Tears of Steel - bridge scene (demo, v2)",
    "group": "Demo",
    "source": "assets/demo/source.mp4",
+   "credit": "Tears of Steel (c) Blender Foundation | mango.blender.org | CC-BY 3.0",
    "media": "assets/demo/source.mp4",
    "sprite": "assets/demo/thumbs.jpg",
    "peaks": "assets/demo/peaks.json",
+   "poster": "assets/demo/poster.jpg",
    "transcript": "assets/demo/words.json",
    "edl": "assets/demo/edl.json",
    "prior_edl": "assets/demo/prior_edl.json",
    "section_start": 0.0,
    "margin_words": 100,
-   "duration": 49.639,
+   "duration": 42.0,
    "sprite_interval": 4,
    "sprite_cols": 20,
    "sprite_tw": 160,

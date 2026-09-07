@@ -63,12 +63,14 @@ async function main() {
 
   // seek + wait for the frame, then set the view up
   const seek = t => `new Promise(res=>{v.pause();const done=()=>{v.removeEventListener('seeked',done);res(1)};v.addEventListener('seeked',done);v.currentTime=${t};setTimeout(()=>res(0),4000)})`;
+  // the moment: "I'm having nightmares ... claw" (bridge scene, both faces in frame); indices found by text so a rebuild cannot drift
+  const HERO = "(()=>{const i=D.words.findIndex(w=>/^nightmares/i.test(w.w));return {i, t:D.words[i].cut_s-0.35}})()";
   await shot("home.png", { url: "/", w: 1440, h: 900 });
-  await shot("desktop.png", { url: "/v/demo#t=23.7&wave=1", w: 1440, h: 900, wait: 1500,
-    setup: `${seek(23.7)}.then(()=>{const a=posOfI(59),b=posOfI(64);if(a!=null&&b!=null){paintSel(a,b);setSelection(a,b);}ta.blur();})` });
-  await shot("waveform.png", { url: "/v/demo#t=25.3&wave=1", w: 1440, h: 900, wait: 1500, setup: `${seek(25.32)}` });
-  await shot("mobile-transcript.png", { url: "/v/demo#t=23.7", w: 390, h: 844, mobile: true, wait: 1500, setup: `${seek(23.7)}` });
-  await shot("mobile-comments.png", { url: "/v/demo#t=23.7", w: 390, h: 844, mobile: true, wait: 1500, setup: `${seek(23.7)}.then(()=>showTab('c'))` });
+  await shot("desktop.png", { url: "/v/demo#t=16", w: 1440, h: 900, wait: 1500,
+    setup: `(async()=>{setWave(false);const h=${HERO};await ${seek("h.t")};const a=posOfI(h.i-2),b=posOfI(h.i+9);if(a!=null&&b!=null){paintSel(a,b);setSelection(a,b);}ta.blur();})()` });
+  await shot("waveform.png", { url: "/v/demo#t=20.6&wave=1", w: 1440, h: 900, wait: 1500, setup: `${seek(20.6)}` });
+  await shot("mobile-transcript.png", { url: "/v/demo#t=16", w: 390, h: 844, mobile: true, wait: 1500, setup: `(async()=>{setWave(false);const h=${HERO};await ${seek("h.t")};})()` });
+  await shot("mobile-comments.png", { url: "/v/demo#t=16", w: 390, h: 844, mobile: true, wait: 1500, setup: `(async()=>{const h=${HERO};await ${seek("h.t")};showTab('c')})()` });
   ws.close(); cleanup(); process.exit(0);
 }
 main().catch(e => { console.error(e); process.exit(1); });
