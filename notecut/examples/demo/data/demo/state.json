@@ -1,0 +1,55 @@
+{
+ "summary": "Demo cut: a 50 s synthetic monologue with two flubs removed. v2 is current (c0001 applied).",
+ "resume": [
+  "Read the open comments: `notecut comments demo --open`",
+  "Apply each one to assets/demo/edl.json (source times), re-render preview.mp4, then `notecut complete demo <id> <note>`",
+  "Write what changed back with `notecut state merge demo '{...}'` and `notecut log demo ...`"
+ ],
+ "open_items": [
+  "AGENT: c0002 duck the bed under the 'drop a pin' sentence",
+  "AGENT: c0004 centre mark alignment",
+  "OWNER: c0003 is a saved draft - do not act until sent"
+ ],
+ "rules": [
+  "Never change the source file; every render is derived from edl.json",
+  "Cuts land on word boundaries; the transcript decides WHAT is kept",
+  "A comment is done only when its render is on the server and `complete` was posted"
+ ],
+ "source": {
+  "file": "assets/demo/source.mp4",
+  "duration_s": 43.39,
+  "note": "synthetic TTS + generated picture"
+ },
+ "transcript": {
+  "file": "assets/demo/words.json",
+  "words": 141,
+  "model": "large-v3-turbo"
+ },
+ "timeline": {
+  "edl": "assets/demo/edl.json",
+  "keep_segments": 3,
+  "prior": "assets/demo/prior_edl.json"
+ },
+ "renders": {
+  "current": {
+   "file": "assets/demo/source.mp4",
+   "version": "v2",
+   "duration_s": 43.39,
+   "built_by": "build_demo.py",
+   "date": "2026-09-06"
+  },
+  "lineage": [
+   "v1 = first cut (prior_edl.json)",
+   "v2 = c0001 applied"
+  ]
+ },
+ "tools": {
+  "rebuild": "python scripts/build_demo.py (dev) / notecut prep demo"
+ },
+ "log": [
+  "2026-09-06 v1 cut posted for review",
+  "2026-09-06 c0001 applied -> v2"
+ ],
+ "updated_at": "2026-09-07T15:08:59Z",
+ "updated_by": "editor-agent"
+}

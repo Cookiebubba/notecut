@@ -1,0 +1,20 @@
+# systemd unit for Note Cut. Install:
+#   sudo cp deploy/notecut.service /etc/systemd/system/notecut.service
+#   sudo systemctl daemon-reload && sudo systemctl enable --now notecut
+#   journalctl -u notecut -f
+# Edit User, WorkingDirectory and --host. Bind to 127.0.0.1 or a tailnet address: Note Cut has no auth.
+[Unit]
+Description=Note Cut review viewer
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=review
+WorkingDirectory=/srv/notecut-project
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/usr/bin/python3 -m notecut serve --root /srv/notecut-project --host 127.0.0.1 --port 8808
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

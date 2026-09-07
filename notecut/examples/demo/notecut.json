@@ -1,0 +1,22 @@
+{
+ "videos": {
+  "demo": {
+   "title": "Review like a human, hand off like a machine (demo, v2)",
+   "group": "Demo",
+   "source": "assets/demo/source.mp4",
+   "media": "assets/demo/source.mp4",
+   "sprite": "assets/demo/thumbs.jpg",
+   "peaks": "assets/demo/peaks.json",
+   "transcript": "assets/demo/words.json",
+   "edl": "assets/demo/edl.json",
+   "prior_edl": "assets/demo/prior_edl.json",
+   "section_start": 0.0,
+   "margin_words": 100,
+   "duration": 49.639,
+   "sprite_interval": 4,
+   "sprite_cols": 20,
+   "sprite_tw": 160,
+   "sprite_th": 90
+  }
+ }
+}

@@ -1,0 +1,5 @@
+{"kind": "transcript", "i0": 132, "i1": 135, "src_start": 46.24, "src_end": 47.4, "sel": "Review like a human,", "body": "Hold on this line a beat longer before the end card.", "id": "c0001", "video": "demo", "sent": true, "at": "2026-09-06T18:02:11Z"}
+{"kind": "point", "clip_t": 22.62, "body": "Music bed is too loud under this sentence - duck it 3 dB.", "id": "c0002", "video": "demo", "sent": true, "at": "2026-09-06T18:03:40Z"}
+{"kind": "point", "clip_t": 2.0, "body": "Maybe open on the second sentence instead? (thinking out loud)", "id": "c0003", "video": "demo", "sent": false, "at": "2026-09-06T18:05:02Z"}
+{"kind": "pin", "clip_t": 23.72, "x": 0.5, "y": 0.44, "shot": "pins/c0004.jpg", "body": "The centre mark drifts up here - keep it on the same line as the meters.", "id": "c0004", "video": "demo", "sent": true, "at": "2026-09-06T18:06:30Z"}
+{"kind": "complete", "ref": "c0001", "done": true, "by": "editor-agent", "note": "extended 0.6 s; re-rendered v2", "at": "2026-09-06T19:10:00Z"}
