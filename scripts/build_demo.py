@@ -4,7 +4,7 @@ Dev-only. Needs: kokoro-onnx (+ model files), faster-whisper, Pillow, numpy, ffm
 OUTPUT of this script so `notecut demo` needs none of those. Everything in the demo is synthetic: a TTS voice
 reads a short review-style script, the picture is a generated audio-reactive scene with live captions.
 
-  python scripts/build_demo.py [--voice am_michael] [--model-dir ~/.buzz/models/kokoro]
+  python scripts/build_demo.py [--voice am_michael] [--model-dir ~/.cache/kokoro]
 """
 from __future__ import annotations
 import argparse, json, math, os, shutil, subprocess, sys, wave
@@ -236,7 +236,7 @@ def seed_data(words, keep, prior_keep):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--voice", default="am_michael")
-    ap.add_argument("--model-dir", default=str(Path.home() / ".buzz" / "models" / "kokoro"))
+    ap.add_argument("--model-dir", default=str(Path.home() / ".cache" / "kokoro"))
     ap.add_argument("--keep-tmp", action="store_true")
     a = ap.parse_args()
     tmp = REPO / ".demo_build"; tmp.mkdir(exist_ok=True)
