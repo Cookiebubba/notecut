@@ -300,7 +300,7 @@ def build_parser():
     p.add_argument("--model", default="large-v3-turbo"); p.add_argument("--device", default="auto"); p.add_argument("--language", default="en")
     p.set_defaults(fn=cmd_transcribe)
     p = sp.add_parser("demo", help="unpack + serve the bundled sample"); p.add_argument("--dir", default="./notecut-demo")
-    p.add_argument("--host", default="0.0.0.0"); p.add_argument("--port", type=int, default=8808); p.set_defaults(fn=cmd_demo)
+    p.add_argument("--host", default="127.0.0.1"); p.add_argument("--port", type=int, default=8808); p.set_defaults(fn=cmd_demo)
 
     p = sp.add_parser("videos", help="list ids on the server"); p.set_defaults(fn=cmd_videos)
     p = sp.add_parser("handoff", help="Markdown brief for one video"); p.add_argument("id"); p.set_defaults(fn=cmd_handoff)

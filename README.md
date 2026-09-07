@@ -219,12 +219,12 @@ Every write is a JSON body; every response is JSON except the two HTML pages and
 
 ```
 notecut init [dir]                       create a project directory
-notecut serve [--root R] [--host H] [--port P]
+notecut serve [--root R] [--host 0.0.0.0] [--port 8808]
 notecut add <id> --media F [--title T] [--transcript W] [--edl E] [--prior-edl P]
                  [--group G] [--section-start S] [--copy-media] [--no-prep] [--height 720]
 notecut prep <id> [--height 720]         rebuild proxy / sprite / peaks
 notecut transcribe <id> [--model large-v3-turbo] [--device auto|cuda|cpu] [--language en]
-notecut demo [--dir ./notecut-demo] [--port 8808]
+notecut demo [--dir ./notecut-demo] [--host 127.0.0.1] [--port 8808]
 
 # client (env NOTECUT_URL, default http://127.0.0.1:8808; NOTECUT_BY names the writer)
 notecut videos
