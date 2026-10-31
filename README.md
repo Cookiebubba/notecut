@@ -4,6 +4,8 @@
 
 <h1 align="center">Note Cut</h1>
 
+<p align="center"><a href="https://buymeacoffee.com/brandynships"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" height="41"></a></p>
+
 <p align="center"><b>Review like a human. Hand off like a machine.</b></p>
 
 <p align="center">
